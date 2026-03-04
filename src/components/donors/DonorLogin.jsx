@@ -1,6 +1,5 @@
 // src/components/donors/DonorLogin.jsx
 import React, { useState } from 'react';
-import { FigureImage } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const DonorLogin = () => {
