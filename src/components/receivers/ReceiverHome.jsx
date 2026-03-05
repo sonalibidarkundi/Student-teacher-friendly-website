@@ -51,51 +51,64 @@ const ReceiverHome = () => {
 
   return (
     <div>
-      <header className="header">
-        {user.image && (
-          <img src={`http://localhost:5000${user.image}`} alt={user.username} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
-        )}
-        <h1>Welcome, {user.username}</h1>
-        {user.companyName && <h2>{user.companyName}</h2>}
+      <header className="header d-flex flex-column flex-md-row align-items-center justify-content-between p-3 bg-light">
+        <div className="d-flex align-items-center gap-3">
+          {user.image && (
+            <img src={`http://localhost:5000${user.image}`} alt={user.username} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
+          )}
+          <div>
+            <h1 className="h4 mb-0">Welcome, {user.username}</h1>
+            {user.companyName && <h2 className="h6 mb-0 text-muted">{user.companyName}</h2>}
+          </div>
+        </div>
       </header>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <div className="container">
-          <Link className="navbar-brand" to="/">{user.companyName}</Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mr-auto">
-              {/* Space holder */}
+        <div className="container-fluid">
+          <Link className="navbar-brand text-white" to="/">{user.companyName || 'Home'}</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <span className="nav-link"> </span>
               </li>
             </ul>
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav">
               {studentId && (
                 <li className="nav-item">
-                  <Link className="nav-link" to={`/stud/DownloadFiles?studentId=${studentId}`}style={{color:"white"}}>Show Notes</Link>
+                  <Link className="nav-link text-white" to={`/stud/DownloadFiles?studentId=${studentId}`}>Show Notes</Link>
                 </li>               
                 
               )}
-
-              
             </ul>
           </div>
         </div>
       </nav>
-      <div className="content">
+      <div className="content p-3">
         {/* Content will go here */}
       </div>
-      <div >
-
-
-       <img src="/images/image.png" alt="" style={{height:"30%",width:"30%",marginLeft:"-100px",marginTop:"50px"}}/>
-
-       <img src="/images/26.jpeg" alt="" style={{height:"30%",width:"30%",marginLeft:"50px",marginTop:"50px"}}/>
-       <img src="/images/27.jpeg" alt="" style={{height:"30%",width:"30%",marginLeft:"50px",marginTop:"50px"}}/><br></br>
-       <img src="/images/28.jpeg" alt="" style={{height:"30%",width:"30%",marginLeft:"-100px",marginTop:"50px"}}/>
-       <img src="/images/29.jpeg" alt="" style={{height:"30%",width:"30%",marginLeft:"50px",marginTop:"50px"}}/>
-       <img src="/images/30.jpeg" alt="" style={{height:"250px",width:"30%",marginLeft:"50px",marginTop:"50px"}}/>
-
-        
+      <div className="container-fluid p-3">
+        <div className="row g-3">
+          <div className="col-6 col-md-4">
+            <img src="/images/image.png" alt="" className="img-fluid rounded" />
+          </div>
+          <div className="col-6 col-md-4">
+            <img src="/images/26.jpeg" alt="" className="img-fluid rounded" />
+          </div>
+          <div className="col-6 col-md-4">
+            <img src="/images/27.jpeg" alt="" className="img-fluid rounded" />
+          </div>
+          <div className="col-6 col-md-4">
+            <img src="/images/28.jpeg" alt="" className="img-fluid rounded" />
+          </div>
+          <div className="col-6 col-md-4">
+            <img src="/images/29.jpeg" alt="" className="img-fluid rounded" />
+          </div>
+          <div className="col-6 col-md-4">
+            <img src="/images/30.jpeg" alt="" className="img-fluid rounded" style={{height: '250px'}} />
+          </div>
+        </div>
       </div>
     </div>
   );

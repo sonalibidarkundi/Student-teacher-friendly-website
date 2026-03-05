@@ -1,10 +1,24 @@
 .App {
   text-align: center;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App-logo {
+    height: 30vmin;
+  }
+  
+  .App-header {
+    padding: 15px;
+    font-size: calc(8px + 2vmin);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -58,4 +72,103 @@
 /* Change text color to contrast with background */
   padding: 20px;
   justify-content: left;
+}
+
+/* Responsive utility classes */
+@media (max-width: 576px) {
+  /* Mobile phones */
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-mb-3 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mobile-p-2 {
+    padding: 0.5rem !important;
+  }
+  
+  .mobile-w-100 {
+    width: 100% !important;
+  }
+  
+  .mobile-mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  /* Tablets */
+  .tablet-mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Navbar responsive styles */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: #007bff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .navbar-nav {
+    text-align: center;
+  }
+  
+  .navbar-nav li {
+    margin: 10px 0;
+  }
+}
+
+/* Form responsive styles */
+@media (max-width: 576px) {
+  .form-control {
+    font-size: 14px;
+    padding: 8px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Carousel responsive */
+@media (max-width: 768px) {
+  .carousel-inner {
+    height: 200px !important;
+  }
+  
+  .carousel-inner .carousel-item img {
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-inner {
+    height: 150px !important;
+  }
+  
+  .carousel-inner .carousel-item img {
+    height: 150px !important;
+  }
+}
+
+/* Card responsive */
+@media (max-width: 576px) {
+  .card {
+    margin: 10px 0;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
 }

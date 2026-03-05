@@ -8,9 +8,33 @@ body {
   background-color:wheat; /* add a gradient background */
   background-size: cover;
   background-blend-mode: color;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Global responsive adjustments */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1, .h1 { font-size: 1.5rem; }
+  h2, .h2 { font-size: 1.3rem; }
+  h3, .h3 { font-size: 1.1rem; }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+* {
+  max-width: 100%;
 }

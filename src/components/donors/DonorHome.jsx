@@ -34,64 +34,69 @@ const Home = () => {
 
   return (
     <div>
-      <header className="header">
-        {user.image && (
-          <img src={`http://localhost:5000${user.image}`} alt={user.username} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
-        )}
-        <h1>Welcome, {user.username}</h1>
-        {user.companyName && <h2>{user.companyName}</h2>}
+      <header className="header d-flex flex-column flex-md-row align-items-center justify-content-between p-3 bg-light">
+        <div className="d-flex align-items-center gap-3">
+          {user.image && (
+            <img src={`http://localhost:5000${user.image}`} alt={user.username} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
+          )}
+          <div>
+            <h1 className="h4 mb-0">Welcome, {user.username}</h1>
+            {user.companyName && <h2 className="h6 mb-0 text-muted">{user.companyName}</h2>}
+          </div>
+        </div>
       </header>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <div className="container">
-          <Link className="navbar-brand" to="/">{user.companyName}</Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mr-auto">
-              {/* Space holder */}
+        <div className="container-fluid">
+          <Link className="navbar-brand text-white" to="/">{user.companyName || 'Home'}</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <span className="nav-link"> </span>
               </li>
             </ul>
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav">
             <li className="nav-item">
-                <Link className="nav-link" to="/clerk/AddClass" style={{color:"white"}}>Add Class</Link>
+                <Link className="nav-link text-white" to="/clerk/AddClass">Add Class</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/clerk/CreateStudent" style={{color:"white"}}>Create Student</Link>
+                <Link className="nav-link text-white" to="/clerk/CreateStudent">Create Student</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/clerk/CreateStaff" style={{color:"white"}}>Create Satff</Link>
+                <Link className="nav-link text-white" to="/clerk/CreateStaff">Create Staff</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/"style={{color:"white"}}>Log Out</Link>
+                <Link className="nav-link text-white" to="/">Log Out</Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <div className="content">
+      <div className="content p-3">
         {/* Content will go here */}
       </div>
-      <div class="n1" style={{marginTop:"50px"}}>
-        <h2 style={{marginLeft:"-1300px"}}>about us:-</h2>
-      <p> In student and teacher-friendly websites both students and teachers, offering educational resources, tools, and support for learning and teaching.
-Here are some key features that make a website student and teacher-friendly:A good student-teacher website should have an intuitive and easy-to-navigate interface.
-It should be organized in a way that makes it simple for both students and teachers to find the information they need.
-The website should provide a wide range of educational resources such as lesson plans, worksheets, videos, interactive activities, and study materials. 
-These resources should be well-structured and aligned with the curriculum.Websites that facilitate communication and collaboration between students and teachers are valuable.
-Features like discussion forums, messaging systems, and shared document spaces can enhance the learning experience.
-A good student-teacher website should include tools for assessments, quizzes, and grading. 
-It should also allow for feedback mechanisms that help both students and teachers track progress and improve learning outcomes.
-Websites that allow users to customize their learning experience based on their individual needs and preferences are beneficial. Personalized learning paths, adaptive learning technologies, 
-and tailored recommendations can enhance engagement and learning outcomes.
-objectives of our websites are Teachers can upload syllabus , notes and assignment making it convenient for students to access all the necessary information in one place.
-Students can use the website to view the course materials , stay organized thought the semester
-Facilitate collaboration between students and teachers.
-Ensure that the website is accessible on various devices.Allows teachers to give suggestions and feedbacks
-
-
-
-      </p>
-    </div>
+      <div className="n1 mt-4 p-3">
+        <h2 className="mobile-text-center mb-3">About Us:-</h2>
+        <div className="about-content">
+          <p> In student and teacher-friendly websites both students and teachers, offering educational resources, tools, and support for learning and teaching.
+          Here are some key features that make a website student and teacher-friendly:A good student-teacher website should have an intuitive and easy-to-navigate interface.
+          It should be organized in a way that makes it simple for both students and teachers to find the information they need.
+          The website should provide a wide range of educational resources such as lesson plans, worksheets, videos, interactive activities, and study materials. 
+          These resources should be well-structured and aligned with the curriculum.Websites that facilitate communication and collaboration between students and teachers are valuable.
+          Features like discussion forums, messaging systems, and shared document spaces can enhance the learning experience.
+          A good student-teacher website should include tools for assessments, quizzes, and grading. 
+          It should also allow for feedback mechanisms that help both students and teachers track progress and improve learning outcomes.
+          Websites that allow users to customize their learning experience based on their individual needs and preferences are beneficial. Personalized learning paths, adaptive learning technologies, 
+          and tailored recommendations can enhance engagement and learning outcomes.
+          objectives of our websites are Teachers can upload syllabus , notes and assignment making it convenient for students to access all the necessary information in one place.
+          Students can use the website to view the course materials , stay organized thought the semester
+          Facilitate collaboration between students and teachers.
+          Ensure that the website is accessible on various devices.Allows teachers to give suggestions and feedbacks
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

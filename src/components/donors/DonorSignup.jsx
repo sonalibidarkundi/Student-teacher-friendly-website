@@ -45,8 +45,8 @@ const ProviderSignUp = () => {
   return (
 
     <div className="container mt-5">    
-    {/* Carousel */}
-    <div id="carouselExampleInterval" className="carousel slide mb-4" data-bs-ride="carousel">
+    {/* Carousel - hidden on small mobile, visible on larger screens */}
+    <div id="carouselExampleIntervalSignup" className="carousel slide mb-4 d-none d-md-block" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active" data-bs-interval="2000">
           <img src={`${process.env.PUBLIC_URL}/images/i1.jpg`} className="d-block w-100" alt="First slide" style={{ height: '300px', objectFit: 'cover' }} />
@@ -70,11 +70,34 @@ const ProviderSignUp = () => {
           </div>
         </div>
       </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIntervalSignup" data-bs-slide="prev">
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Previous</span>
       </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIntervalSignup" data-bs-slide="next">
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    {/* Mobile carousel - smaller version */}
+    <div id="carouselExampleIntervalSignupMobile" className="carousel slide mb-4 d-md-none" data-bs-ride="carousel">
+      <div className="carousel-inner">
+        <div className="carousel-item active" data-bs-interval="2000">
+          <img src={`${process.env.PUBLIC_URL}/images/i1.jpg`} className="d-block w-100" alt="First slide" style={{ height: '180px', objectFit: 'cover' }} />
+        </div>
+        <div className="carousel-item" data-bs-interval="2000">
+          <img src={`${process.env.PUBLIC_URL}/images/i2.jpg`} className="d-block w-100" alt="Second slide" style={{ height: '180px', objectFit: 'cover' }} />
+        </div>
+        <div className="carousel-item" data-bs-interval="2000">
+          <img src={`${process.env.PUBLIC_URL}/images/i3.jpg`} className="d-block w-100" alt="Third slide" style={{ height: '180px', objectFit: 'cover' }} />
+        </div>
+      </div>
+      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIntervalSignupMobile" data-bs-slide="prev">
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
+      </button>
+      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIntervalSignupMobile" data-bs-slide="next">
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
       </button>
@@ -83,14 +106,24 @@ const ProviderSignUp = () => {
     {/* Form in Card */}
     <div className="card shadow">
       <div className="card-body">
-        <h5 className="card-title mb-4">Donor Signup Form</h5>
+        <h5 className="card-title mb-4 text-center">Donor Signup Form</h5>
         <form onSubmit={handleSubmit}>
-      <input type="text" className='form-control' name="username" placeholder="Username" onChange={handleChange} required />
-      <input type="password" className='form-control' name="password" placeholder="Password" onChange={handleChange} required />
-      <input type="text" className='form-control' name="companyName" placeholder="Company Name" onChange={handleChange} required />
-      <input type="file" className='form-control' name="logo" onChange={handleFileChange} required />
-      <button className='btn btn-primary rounded-5 w-50 mt-4' type="submit">Sign Up</button>
-    </form>
+          <div className="mb-3">
+            <input type="text" className='form-control' name="username" placeholder="Username" onChange={handleChange} required />
+          </div>
+          <div className="mb-3">
+            <input type="password" className='form-control' name="password" placeholder="Password" onChange={handleChange} required />
+          </div>
+          <div className="mb-3">
+            <input type="text" className='form-control' name="companyName" placeholder="Company Name" onChange={handleChange} required />
+          </div>
+          <div className="mb-3">
+            <input type="file" className='form-control' name="logo" onChange={handleFileChange} required />
+          </div>
+          <div className="text-center">
+            <button className='btn btn-primary rounded-5 w-50 mt-2' type="submit">Sign Up</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ import Footer from './Footer';
 const HomePage = () => {
   return (
     <div>
-      <h1 style={{color:'black',fontFamily:"cursive"}}>STUDENT-TEACHER FRIENDLY WEBSITE</h1>
+      <h1 style={{color:'black',fontFamily:"cursive"}} className="my-3">STUDENT-TEACHER FRIENDLY WEBSITE</h1>
       <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
       
       <div className="carousel-inner" style={{height:"400px",width:"100%"}}>
@@ -36,9 +36,9 @@ const HomePage = () => {
 {/*  To add cards for 2 modules  */}
 <div class="n1">
 <p>
-<h1 style={{marginLeft:"-812px",color:"blueviolet"}}>LEARN ON YOUR </h1>
-<h1 style={{marginLeft:"-950px",color:"blueviolet"}}>SCHDULE.</h1>
-<h1 style={{marginLeft:"-600px",fontSize:"30px"}}>Anywhere,anytime,Start learning today!</h1>
+<h1 className="mobile-text-center" style={{color:"blueviolet"}}>LEARN ON YOUR </h1>
+<h1 className="mobile-text-center" style={{color:"blueviolet"}}>SCHDULE.</h1>
+<h1 className="mobile-text-center" style={{fontSize:"30px"}}>Anywhere,anytime,Start learning today!</h1>
 
 
 
@@ -52,11 +52,13 @@ const HomePage = () => {
   <div>
   <div class="card-body">
    
-    <NavLink to="/donor/login" className="btn btn-primary" style={{marginLeft:'-1050px'}}>Login</NavLink>
+    <NavLink to="/donor/login" className="btn btn-primary mobile-mb-3">Login</NavLink>
   </div>
-  <img src={`${process.env.PUBLIC_URL}/images/31.jpeg`} style={{marginLeft:"600px",display:"flex",marginTop:"-200px"}} alt="" />
+  <div className="d-flex flex-wrap justify-content-center gap-3 mt-3">
+    <img src={`${process.env.PUBLIC_URL}/images/31.jpeg`} style={{maxWidth:"200px",width:"100%"}} alt="" className="img-fluid" />
 
-  <img src={`${process.env.PUBLIC_URL}/images/33.jpeg`} style={{marginLeft:"200px",display:"flex",marginTop:"-300px"}} alt="" />
+    <img src={`${process.env.PUBLIC_URL}/images/33.jpeg`} style={{maxWidth:"200px",width:"100%"}} alt="" className="img-fluid" />
+  </div>
   
 </div>
 </div>

@@ -46,9 +46,8 @@ const DonorLogin = () => {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundColor:'drakgray',
-  
-    padding: '0 15px',
+    backgroundColor: 'darkgray',
+    padding: '20px 15px',
   };
 
   const cardStyle = {
@@ -57,8 +56,8 @@ const DonorLogin = () => {
     borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
     backgroundColor: '#fff',
-    padding: '20px',
-    margin: '20px',
+    padding: '30px 20px',
+    margin: '10px',
   };
 
   const cardTitleStyle = {
@@ -78,22 +77,24 @@ const DonorLogin = () => {
 
   const inputStyle = {
     width: '100%',
-    padding: '10px',
+    padding: '12px',
     marginBottom: '15px',
     borderRadius: '5px',
     border: '1px solid #ddd',
     boxSizing: 'border-box',
+    fontSize: '16px',
   };
 
   const buttonStyle = {
     width: '100%',
-    padding: '10px',
+    padding: '12px',
     borderRadius: '5px',
     border: 'none',
     backgroundColor: '#007bff',
     color: '#fff',
     fontSize: '1rem',
     cursor: 'pointer',
+    marginTop: '10px',
   };
 
   return (

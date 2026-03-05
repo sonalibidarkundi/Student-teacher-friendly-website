@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white py-4" style={{marginTop:'10%'}}>
+    <footer className="bg-dark text-white py-4 mt-5">
       <div className="container">
         <div className="row">
           <div className="col-md-6 mb-4 mb-md-0">
@@ -19,10 +19,10 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="col-md-6 text-md-end">
+          <div className="col-md-6 text-center text-md-end">
             <h5>Contact Us</h5>
-            <p>Email: jadhavajeet2@gmail.com</p>
-            <p>Phone: +91-7411402186</p>
+            <p className="mb-1">Email: jadhavajeet2@gmail.com</p>
+            <p className="mb-0">Phone: +91-7411402186</p>
           </div>
         </div>
       </div>

@@ -34,42 +34,41 @@ const StaffHome = () => {
 
   return (
     <div>
-      <header className="header">
-        {user.image && (
-          <img src={`http://localhost:5000${user.image}`} alt={user.username} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
-        )}
-        <h1>Welcome, {user.username}</h1>
-        {user.companyName && <h2>{user.companyName}</h2>}
+      <header className="header d-flex flex-column flex-md-row align-items-center justify-content-between p-3 bg-light">
+        <div className="d-flex align-items-center gap-3">
+          {user.image && (
+            <img src={`http://localhost:5000${user.image}`} alt={user.username} style={{ borderRadius: '50%', width: '50px', height: '50px' }} />
+          )}
+          <div>
+            <h1 className="h4 mb-0">Welcome, {user.username}</h1>
+            {user.companyName && <h2 className="h6 mb-0 text-muted">{user.companyName}</h2>}
+          </div>
+        </div>
       </header>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <div className="container">
-          <Link className="navbar-brand" to="/">{user.companyName}</Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mr-auto">
-              {/* Space holder */}
+        <div className="container-fluid">
+          <Link className="navbar-brand text-white" to="/">{user.companyName || 'Home'}</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <span className="nav-link"> </span>
               </li>
             </ul>
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav">
             <li className="nav-item">
-                <Link className="nav-link" to="/staff/uploadNotes"style={{color:"white"}}>Upload Notes</Link>
+                <Link className="nav-link text-white" to="/staff/uploadNotes">Upload Notes</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/"style={{color:"white"}}>Log Out</Link>
+                <Link className="nav-link text-white" to="/">Log Out</Link>
               </li>
-          
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/clerk/CreateStudent">Create Student</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/clerk/CreateStaff">Create Satff</Link>
-              </li> */}
             </ul>
           </div>
         </div>
       </nav>
-      <div className="content">
+      <div className="content p-3">
         {/* Content will go here */}
       </div>
     </div>
