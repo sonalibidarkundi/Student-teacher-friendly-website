@@ -14,16 +14,20 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 export const signUp = [upload.single('logo'), async (req, res) => {
-  const { username, password, role } = req.body;
-  const image = req.file ? `/uploads/${req.file.filename}` : null;
+  let { username, password, role } = req.body;
+  
+  // Map roles to valid database enum values
+  if (role === 'seeker') role = 'student';
+  if (role === 'provider') role = 'staff';
 
   try {
     const [result] = await pool.query(
-      'INSERT INTO users (username, password, role, image) VALUES (?, ?, ?, ?)',
-      [username, password, role, image]
+      'INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
+      [username, password, role]
     );
-    res.status(201).json({ id: result.insertId, username, role, image });
+    res.status(201).json({ id: result.insertId, username, role });
   } catch (error) {
+    console.error('Signup error:', error); // Log the error for debugging
     res.status(500).json({ error: 'User registration failed' });
   }
 }];
@@ -101,7 +105,35 @@ export const getAllClasses = async (req, res) => {
 export const createStudent = async (req, res) => {
  // console.log(req.body);
   const { username, password, fullname, mobile_number, address, class_id } = req.body;
+  
+  // Validate inputs
+  if (!username || !password || !fullname || !mobile_number || !address || !class_id) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+  
+  // Validate mobile_number length (reg no.)
+  if (mobile_number.length > 20) {
+    return res.status(400).json({ error: 'Registration number must be 20 characters or less' });
+  }
+  
+  // Validate password length
+  if (password.length > 8) {
+    return res.status(400).json({ error: 'Password must be 8 characters or less' });
+  }
+  
   try {
+      // Check if username already exists
+      const [existingUsers] = await pool.query('SELECT id FROM users WHERE username = ?', [username]);
+      if (existingUsers.length > 0) {
+          return res.status(400).json({ error: 'Username already exists' });
+      }
+      
+      // Check if class exists
+      const [classes] = await pool.query('SELECT id FROM classes WHERE id = ?', [class_id]);
+      if (classes.length === 0) {
+          return res.status(400).json({ error: 'Invalid class selected' });
+      }
+      
       // Create user first
       const [userResult] = await pool.query('INSERT INTO users (username, password, role) VALUES (?, ?, ?)', [username, password, 'student']);
       const userId = userResult.insertId;
