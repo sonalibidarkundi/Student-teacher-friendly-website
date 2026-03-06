@@ -1,0 +1,13 @@
+/* src/styles.css */
+
+body {
+  margin: 0;
+  padding: 0;
+ background: linear-gradient(to right, #c0b62f, #d8ceda); /* Example gradient from pink to orange */
+
+}
+.carousel-image {
+    width: 100%; /* You can adjust this as needed */
+    height: 250px; /* You can adjust this as needed */
+    object-fit: cover; /* This ensures the image covers the container without stretching */
+  }  
