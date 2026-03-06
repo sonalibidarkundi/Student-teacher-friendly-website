@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ReceiverHome = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [studentId, setStudentId] = useState(null);
 
@@ -49,6 +50,12 @@ const ReceiverHome = () => {
 
   if (!user) return <div>Loading...</div>;
 
+  const handleLogout = () => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
+    navigate('/receiver/receiverlogin');
+  };
+
   return (
     <div>
       <header className="header d-flex flex-column flex-md-row align-items-center justify-content-between p-3 bg-light">
@@ -81,6 +88,9 @@ const ReceiverHome = () => {
                 </li>               
                 
               )}
+              <li className="nav-item">
+                <button className="nav-link text-white btn-link" onClick={handleLogout}>Logout</button>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const StaffHome = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -31,6 +32,12 @@ const StaffHome = () => {
   }, []);
 
   if (!user) return <div>Loading...</div>;
+
+  const handleLogout = () => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
+    navigate('/donor/login');
+  };
 
   return (
     <div>
@@ -62,7 +69,7 @@ const StaffHome = () => {
                 <Link className="nav-link text-white" to="/staff/uploadNotes">Upload Notes</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-white" to="/">Log Out</Link>
+                <button className="nav-link text-white btn-link" onClick={handleLogout}>Log Out</button>
               </li>
             </ul>
           </div>

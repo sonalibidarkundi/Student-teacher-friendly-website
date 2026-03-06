@@ -103,7 +103,10 @@ const DownloadFiles = () => {
 
     return (
         <div>
-            <h2>Download Files</h2>
+            <div className="d-flex justify-content-between align-items-center mb-3">
+                <h2>Download Files</h2>
+                <a href="/receiver/ReceiverHome" className="btn btn-primary">Back to Home</a>
+            </div>
             <button onClick={handleDownload} disabled={loading}>
                 {loading ? 'Loading...' : 'Show Files'}
             </button>

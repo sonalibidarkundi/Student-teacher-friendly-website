@@ -24,15 +24,35 @@ const CreateStudent = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Validate class selection
+        if (!classId) {
+            alert('Please select a class');
+            return;
+        }
+        
+        const studentData = { 
+            username, 
+            password, 
+            fullname, 
+            mobile_number: mobileNumber, 
+            address, 
+            class_id: parseInt(classId) 
+        };
+        
+        console.log('Sending data:', studentData);
+        
         try {
             const response = await fetch('http://localhost:5000/api/clerk/students', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password, fullname, mobile_number: mobileNumber, address, class_id: classId })
+                body: JSON.stringify(studentData)
             });
+            const data = await response.json();
+            console.log('Response:', response.status, data);
+            
             if (response.ok) {
-                const newStudent = await response.json();
-                alert('Student created:', newStudent);
+                alert('Student created successfully!');
                 setUsername('');
                 setPassword('');
                 setFullname('');
@@ -40,10 +60,11 @@ const CreateStudent = () => {
                 setAddress('');
                 setClassId('');
             } else {
-                console.error('Failed to create student');
+                alert('Error: ' + (data.error || 'Failed to create student'));
             }
         } catch (error) {
             console.error('Error:', error);
+            alert('Error: ' + error.message);
         }
     };
 
@@ -99,12 +120,11 @@ const CreateStudent = () => {
                             type="text"
                             className="form-control"
                             id="mobileNumber"
-                          
                             value={mobileNumber}
                             onChange={(e) => setMobileNumber(e.target.value)}
                             required
-                            pattern="[a-zA-Z0-9]*" // Optional: HTML5 attribute for pattern validation
-
+                            pattern="[a-zA-Z0-9]*"
+                            maxLength={20}
                         />
                     </div>
                     <div className="form-group">

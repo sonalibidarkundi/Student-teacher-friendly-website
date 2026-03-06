@@ -27,7 +27,7 @@ const ProviderSignUp = () => {
     data.append('logo', formData.logo);
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/signUp', {
+      const response = await fetch('http://localhost:5000/api/clerk/signup', {
         method: 'POST',
         body: data
       });

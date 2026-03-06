@@ -50,7 +50,10 @@ const ApplyJob = () => {
 
   return (
     <div className="container mt-5">
-      <h3>Search and Apply for Jobs</h3>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h3>Search and Apply for Jobs</h3>
+        <a href="/receiver/ReceiverHome" className="btn btn-primary">Back to Home</a>
+      </div>
       <form onSubmit={handleSearch}>
         <div className="mb-3">
           <input
